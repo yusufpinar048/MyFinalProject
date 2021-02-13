@@ -14,9 +14,9 @@ namespace Business.Concrete
 {
     public class ProductManager : IProductService
     {
-        EfProductDal _productDal;
+        IProductDal _productDal;
 
-        public ProductManager(EfProductDal productDal)
+        public ProductManager(IProductDal productDal)
         {
             _productDal = productDal;
         }
@@ -34,7 +34,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Product>> GetAll()
         {
-            if (DateTime.Now.Hour==22)
+            if (DateTime.Now.Hour == 1)
             {
                 return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
             }
